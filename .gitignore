@@ -6,6 +6,7 @@ RideApp/node_modules/
 RideApp/.expo/
 RideApp/dist/
 RideApp/web-build/
+RideApp/expo-env.d.ts
 
 
 # General
