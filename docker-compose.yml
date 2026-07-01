@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: rideapp-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: rideapp
+      POSTGRES_USER: rideapp
+      POSTGRES_PASSWORD: rideapp_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - rideapp_postgres_data:/var/lib/postgresql/data
+      - ./backend/db/init.sql:/docker-entrypoint-initdb.d/001-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rideapp -d rideapp"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  rideapp_postgres_data:
