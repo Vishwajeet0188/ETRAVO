@@ -1,0 +1,14 @@
+backend/node_modules/
+backend/.npm-cache/
+
+# Frontend
+RideApp/node_modules/
+RideApp/.expo/
+RideApp/dist/
+RideApp/web-build/
+
+
+# General
+.vscode/
+*.log
+.DS_Store

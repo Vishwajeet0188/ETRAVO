@@ -11,7 +11,7 @@ import {
   Alert,
   ActivityIndicator,
 } from "react-native";
-import { router } from "expo-router";
+import { router,Href } from "expo-router";
 import Svg, { Path, Circle, Rect } from "react-native-svg";
 import { useAuth } from "../context/AuthContext";
 import { getApiErrorMessage } from "../services/api";
@@ -126,9 +126,9 @@ export default function Register() {
         role,
       });
       router.replace(
-        user.role === "driver"
+        (user.role === "driver"
           ? "/(driver)/dashboard"
-          : "/(passenger)/dashboard",
+          : "/(passenger)/dashboard") as Href
       );
     } catch (error) {
       Alert.alert("Registration failed", getApiErrorMessage(error));
